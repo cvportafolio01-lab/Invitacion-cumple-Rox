@@ -1,0 +1,1103 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Invitación | 3 de octubre de 2026</title>
+
+  <style>
+    :root{
+      --rosa:#e78ca9;
+      --rosa-claro:#fff2f6;
+      --rosa-fuerte:#c4587e;
+      --vino:#71384f;
+      --vino-oscuro:#54283b;
+      --dorado:#d7a34a;
+      --blanco:#fff;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      padding:24px;
+
+      font-family:Georgia,'Times New Roman',serif;
+      color:var(--vino);
+
+      display:grid;
+      place-items:center;
+
+      overflow-x:hidden;
+
+      background:
+        radial-gradient(circle at 15% 15%,rgba(255,255,255,.95) 0 4%,transparent 18%),
+        radial-gradient(circle at 85% 10%,rgba(255,255,255,.8) 0 3%,transparent 16%),
+        radial-gradient(circle at 50% 100%,#efbdcf 0%,#f8dbe5 45%,#fffaff 100%);
+
+      position:relative;
+    }
+
+
+    /* =========================
+       FONDO ANIMADO
+    ========================= */
+
+    .particulas{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .particula{
+      position:absolute;
+      bottom:-40px;
+
+      color:rgba(196,88,126,.32);
+      font-size:18px;
+
+      animation:
+        subir 10s linear infinite,
+        balanceo 3s ease-in-out infinite alternate;
+    }
+
+    .particula:nth-child(1){
+      left:8%;
+      animation-delay:0s;
+      font-size:15px;
+    }
+
+    .particula:nth-child(2){
+      left:22%;
+      animation-delay:2s;
+      font-size:22px;
+    }
+
+    .particula:nth-child(3){
+      left:38%;
+      animation-delay:5s;
+      font-size:14px;
+    }
+
+    .particula:nth-child(4){
+      left:57%;
+      animation-delay:1s;
+      font-size:20px;
+    }
+
+    .particula:nth-child(5){
+      left:73%;
+      animation-delay:4s;
+      font-size:15px;
+    }
+
+    .particula:nth-child(6){
+      left:88%;
+      animation-delay:7s;
+      font-size:23px;
+    }
+
+    @keyframes subir{
+      0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+
+      10%{
+        opacity:.7;
+      }
+
+      90%{
+        opacity:.5;
+      }
+
+      100%{
+        transform:translateY(-115vh) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    @keyframes balanceo{
+      from{
+        margin-left:-12px;
+      }
+
+      to{
+        margin-left:12px;
+      }
+    }
+
+
+    /* =========================
+       TARJETA
+    ========================= */
+
+    .invitacion{
+      position:relative;
+      z-index:2;
+
+      width:min(100%,700px);
+
+      overflow:hidden;
+
+      border:1px solid rgba(255,255,255,.95);
+      border-radius:34px;
+
+      padding:45px 38px 32px;
+
+      text-align:center;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.97),
+          rgba(255,247,250,.94)
+        );
+
+      box-shadow:
+        0 30px 80px rgba(113,56,79,.22),
+        inset 0 0 50px rgba(255,255,255,.7);
+
+      animation:
+        aparecer .9s ease both,
+        flotar 6s ease-in-out 1s infinite;
+
+      isolation:isolate;
+    }
+
+    @keyframes aparecer{
+      from{
+        opacity:0;
+        transform:translateY(35px) scale(.96);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+    }
+
+    @keyframes flotar{
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-5px);
+      }
+    }
+
+
+    /* brillo de tarjeta */
+
+    .invitacion::before{
+      content:"";
+      position:absolute;
+      inset:-100%;
+
+      background:
+        linear-gradient(
+          115deg,
+          transparent 40%,
+          rgba(255,255,255,.55) 50%,
+          transparent 60%
+        );
+
+      transform:translateX(-60%) rotate(10deg);
+
+      animation:brillo 7s ease-in-out infinite;
+
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    @keyframes brillo{
+      0%,65%{
+        transform:translateX(-70%) rotate(10deg);
+      }
+
+      85%,100%{
+        transform:translateX(70%) rotate(10deg);
+      }
+    }
+
+
+    /* =========================
+       DECORACIÓN
+    ========================= */
+
+    .adorno{
+      position:absolute;
+      color:#e8b4c4;
+      opacity:.65;
+      font-size:48px;
+
+      animation:pulsar 3s ease-in-out infinite;
+    }
+
+    .adorno.a1{
+      top:15px;
+      left:25px;
+    }
+
+    .adorno.a2{
+      right:25px;
+      bottom:12px;
+      animation-delay:1.5s;
+    }
+
+    @keyframes pulsar{
+      0%,100%{
+        transform:scale(1) rotate(0deg);
+      }
+
+      50%{
+        transform:scale(1.12) rotate(8deg);
+      }
+    }
+
+
+    /* =========================
+       CABECERA
+    ========================= */
+
+    .sello{
+      display:inline-block;
+
+      color:var(--dorado);
+
+      font-size:13px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+
+      animation:deslizar .8s ease .2s both;
+    }
+
+    @keyframes deslizar{
+      from{
+        opacity:0;
+        transform:translateY(-15px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .titulo{
+      margin:13px 0 10px;
+
+      font-size:clamp(43px,9vw,72px);
+      line-height:.95;
+      font-weight:400;
+
+      color:var(--vino);
+
+      animation:
+        tituloEntrada 1s cubic-bezier(.2,.8,.2,1) .35s both;
+    }
+
+    @keyframes tituloEntrada{
+      from{
+        opacity:0;
+        transform:scale(.75);
+        letter-spacing:8px;
+      }
+
+      to{
+        opacity:1;
+        transform:scale(1);
+        letter-spacing:0;
+      }
+    }
+
+    .intro{
+      max-width:470px;
+
+      margin:0 auto 25px;
+
+      font-size:18px;
+      line-height:1.55;
+
+      animation:aparecer .9s ease .65s both;
+    }
+
+
+    /* =========================
+       FOTO
+    ========================= */
+
+    .foto{
+      position:relative;
+
+      width:205px;
+      height:205px;
+
+      margin:0 auto 20px;
+
+      padding:7px;
+
+      border:1px solid rgba(215,163,74,.55);
+
+      border-radius:50%;
+
+      background:
+        linear-gradient(145deg,#fff,#f9d1de);
+
+      box-shadow:
+        0 12px 35px rgba(113,56,79,.18),
+        0 0 0 8px rgba(255,255,255,.65);
+
+      display:grid;
+      place-items:center;
+
+      overflow:hidden;
+
+      animation:
+        fotoEntrada 1.2s cubic-bezier(.2,.8,.2,1) .8s both,
+        fotoFlota 5s ease-in-out 2s infinite;
+    }
+
+    @keyframes fotoEntrada{
+      from{
+        opacity:0;
+        transform:scale(.5) rotate(-10deg);
+      }
+
+      to{
+        opacity:1;
+        transform:scale(1) rotate(0);
+      }
+    }
+
+    @keyframes fotoFlota{
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-7px);
+      }
+    }
+
+    .foto::after{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      border-radius:50%;
+
+      background:
+        linear-gradient(
+          120deg,
+          transparent 30%,
+          rgba(255,255,255,.6) 50%,
+          transparent 70%
+        );
+
+      transform:translateX(-130%);
+
+      animation:fotoBrillo 5s ease-in-out infinite;
+    }
+
+    @keyframes fotoBrillo{
+      0%,65%{
+        transform:translateX(-130%);
+      }
+
+      85%,100%{
+        transform:translateX(130%);
+      }
+    }
+
+    .foto img{
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      border-radius:50%;
+
+      display:block;
+
+      transition:
+        transform .5s ease,
+        filter .5s ease;
+    }
+
+    .foto:hover img{
+      transform:scale(1.08);
+      filter:saturate(1.08);
+    }
+
+
+    /* =========================
+       NOMBRE
+    ========================= */
+
+    .celebramos{
+      margin:0;
+
+      color:var(--rosa);
+
+      font-size:15px;
+      letter-spacing:4px;
+      text-transform:uppercase;
+    }
+
+    .nombre{
+      margin:7px 0 13px;
+
+      font-size:42px;
+      font-weight:400;
+
+      color:var(--rosa-fuerte);
+
+      text-shadow:0 2px 10px rgba(196,88,126,.12);
+
+      animation:nombreEntrada 1s ease 1.1s both;
+    }
+
+    @keyframes nombreEntrada{
+      from{
+        opacity:0;
+        transform:translateY(15px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+
+    /* =========================
+       SEPARADOR
+    ========================= */
+
+    .separador{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:12px;
+
+      margin:0 auto 28px;
+
+      color:var(--dorado);
+
+      font-size:20px;
+    }
+
+    .separador i{
+      display:block;
+
+      width:110px;
+      height:1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #e8b4c4,
+          transparent
+        );
+    }
+
+
+    /* =========================
+       FECHA DESTACADA
+    ========================= */
+
+    .fecha-principal{
+      margin:0 auto 22px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:13px;
+
+      color:var(--vino);
+
+      animation:aparecer .8s ease 1.2s both;
+    }
+
+    .fecha-numero{
+      font-size:42px;
+      color:var(--rosa-fuerte);
+      line-height:1;
+    }
+
+    .fecha-texto{
+      text-align:left;
+    }
+
+    .fecha-texto small{
+      display:block;
+
+      font-size:12px;
+      letter-spacing:2px;
+
+      color:#c26b88;
+
+      text-transform:uppercase;
+    }
+
+    .fecha-texto strong{
+      display:block;
+
+      font-size:17px;
+      font-weight:400;
+    }
+
+
+    /* =========================
+       DETALLES
+    ========================= */
+
+    .detalles{
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:15px;
+
+      margin:0 auto 25px;
+
+      max-width:570px;
+    }
+
+    .detalle{
+      position:relative;
+
+      display:flex;
+
+      gap:12px;
+
+      align-items:flex-start;
+
+      text-align:left;
+
+      padding:17px;
+
+      border:1px solid #f0cbd7;
+      border-radius:19px;
+
+      background:rgba(255,255,255,.78);
+
+      color:inherit;
+
+      text-decoration:none;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+      animation:tarjetaEntrada .7s ease both;
+    }
+
+    .detalle:nth-child(1){
+      animation-delay:1.3s;
+    }
+
+    .detalle:nth-child(2){
+      animation-delay:1.45s;
+    }
+
+    @keyframes tarjetaEntrada{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .detalle:hover,
+    .detalle:focus-visible{
+      transform:translateY(-5px);
+
+      border-color:#df9bb3;
+
+      background:#fff;
+
+      box-shadow:
+        0 12px 25px rgba(113,56,79,.13);
+
+      outline:none;
+    }
+
+    .icono{
+      flex:none;
+
+      width:35px;
+      height:35px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:50%;
+
+      color:var(--rosa-fuerte);
+
+      background:#fff0f5;
+
+      font-size:21px;
+    }
+
+    .etiqueta{
+      display:block;
+
+      margin-bottom:5px;
+
+      color:#c26b88;
+
+      font-size:11px;
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+    }
+
+    .detalle strong{
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    .ubicacion strong{
+      font-style:italic;
+    }
+
+
+    /* =========================
+       MAPA HINT
+    ========================= */
+
+    .mapa-hint{
+      display:block;
+
+      margin-top:5px;
+
+      font-family:Arial,sans-serif;
+
+      font-size:11px;
+
+      color:#b95b80;
+    }
+
+
+    /* =========================
+       MENSAJE
+    ========================= */
+
+    .cierre{
+      max-width:450px;
+
+      margin:13px auto 21px;
+
+      font-size:18px;
+      line-height:1.55;
+
+      animation:aparecer .8s ease 1.6s both;
+    }
+
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp{
+      position:relative;
+
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:9px;
+
+      padding:15px 27px;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #c7688d,
+          #a94c70
+        );
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-family:Arial,sans-serif;
+
+      font-size:15px;
+      font-weight:700;
+
+      box-shadow:
+        0 9px 22px rgba(185,91,128,.3);
+
+      overflow:hidden;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .whatsapp::before{
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      left:-100%;
+
+      width:70%;
+      height:100%;
+
+      background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+      );
+
+      transform:skewX(-20deg);
+
+      animation:botonBrillo 4s infinite;
+    }
+
+    @keyframes botonBrillo{
+      0%,55%{
+        left:-100%;
+      }
+
+      75%,100%{
+        left:140%;
+      }
+    }
+
+    .whatsapp:hover,
+    .whatsapp:focus-visible{
+      transform:translateY(-3px) scale(1.02);
+
+      box-shadow:
+        0 14px 28px rgba(185,91,128,.38);
+
+      outline:3px solid #f0c1d1;
+      outline-offset:4px;
+    }
+
+
+    /* =========================
+       PIE
+    ========================= */
+
+    .pie{
+      margin-top:22px;
+
+      font-size:14px;
+
+      color:#b87991;
+
+      animation:aparecer .8s ease 1.8s both;
+    }
+
+
+    /* =========================
+       CORAZÓN DECORATIVO
+    ========================= */
+
+    .corazon{
+      display:inline-block;
+
+      margin:0 5px;
+
+      color:var(--rosa);
+
+      animation:latido 1.7s ease-in-out infinite;
+    }
+
+    @keyframes latido{
+      0%,100%{
+        transform:scale(1);
+      }
+
+      20%{
+        transform:scale(1.25);
+      }
+
+      35%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.15);
+      }
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:560px){
+
+      body{
+        padding:12px;
+      }
+
+      .invitacion{
+        padding:35px 17px 27px;
+        border-radius:26px;
+      }
+
+      .titulo{
+        font-size:48px;
+      }
+
+      .intro{
+        font-size:16px;
+      }
+
+      .foto{
+        width:175px;
+        height:175px;
+      }
+
+      .nombre{
+        font-size:36px;
+      }
+
+      .fecha-numero{
+        font-size:36px;
+      }
+
+      .detalles{
+        grid-template-columns:1fr;
+      }
+
+      .detalle{
+        padding:15px;
+      }
+
+      .separador i{
+        width:70px;
+      }
+
+      .adorno{
+        font-size:38px;
+      }
+    }
+
+
+    /* =========================
+       ACCESIBILIDAD
+    ========================= */
+
+    @media(prefers-reduced-motion:reduce){
+
+      *,
+      *::before,
+      *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- PARTICULAS -->
+  <div class="particulas" aria-hidden="true">
+    <span class="particula">♡</span>
+    <span class="particula">✦</span>
+    <span class="particula">♡</span>
+    <span class="particula">✧</span>
+    <span class="particula">♡</span>
+    <span class="particula">✦</span>
+  </div>
+
+
+  <!-- INVITACIÓN -->
+  <main class="invitacion" aria-labelledby="titulo">
+
+    <span class="adorno a1">✦</span>
+    <span class="adorno a2">✦</span>
+
+
+    <div class="sello">
+      Una celebración muy especial
+    </div>
+
+
+    <h1 id="titulo" class="titulo">
+      ¡Estás invitad@!
+    </h1>
+
+
+    <p class="intro">
+      Acompáñame a celebrar un día lleno de
+      magia, sonrisas y mucho amor.
+    </p>
+
+
+    <!-- FOTO -->
+    <div
+      class="foto"
+      aria-label="Espacio para la foto de la festejada"
+    >
+      <img
+        src="/roxy.jpeg"
+        alt="Foto de la festejada"
+      >
+    </div>
+
+
+    <p class="celebramos">
+      Celebramos a
+    </p>
+
+
+    <h2 class="nombre">
+      Mi princesa
+    </h2>
+
+
+    <div
+      class="separador"
+      aria-hidden="true"
+    >
+      <i></i>
+      <span class="corazon">♡</span>
+      <i></i>
+    </div>
+
+
+    <!-- FECHA PRINCIPAL -->
+    <div class="fecha-principal">
+
+      <div class="fecha-numero">
+        03
+      </div>
+
+      <div class="fecha-texto">
+        <small>Octubre</small>
+        <strong>2026</strong>
+      </div>
+
+    </div>
+
+
+    <!-- DETALLES -->
+    <section
+      class="detalles"
+      aria-label="Detalles de la fiesta"
+    >
+
+      <div class="detalle">
+
+        <div class="icono">
+          ◷
+        </div>
+
+        <div>
+
+          <span class="etiqueta">
+            Hora
+          </span>
+
+          <strong>
+            3:00 pm
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <a
+        class="detalle ubicacion"
+        href="https://www.google.com/maps/search/?api=1&query=22.1419458,-100.9073959"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir la ubicación en Google Maps"
+      >
+
+        <div class="icono">
+          ⌖
+        </div>
+
+        <div>
+
+          <span class="etiqueta">
+            Lugar 
+          </span>
+
+          <strong>
+            Sierra San Miguelito #109
+            <br>
+            Fracc. La Sierra
+          </strong>
+
+          <span class="mapa-hint">
+            ✦ Abrir ubicación en Maps
+          </span>
+
+        </div>
+
+      </a>
+
+    </section>
+
+
+    <!-- MENSAJE -->
+    <p class="cierre">
+      ¡No faltes, tu presencia hará este día
+      aún más especial!
+      <span class="corazon">♥</span>
+    </p>
+
+
+    <!-- WHATSAPP -->
+    <a
+      class="whatsapp"
+      href="https://wa.me/524447085630?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%20Roxy."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>♡</span>
+      Confirmar por WhatsApp
+    </a>
+
+
+    <footer class="pie">
+      Con cariño, te esperamos
+    </footer>
+
+  </main>
+
+</body>
+</html>
